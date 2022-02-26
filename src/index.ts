@@ -7,6 +7,8 @@ import { createConnectBankerToClient } from "./routes/connect_banker_to_client";
 import { createBankerRouter } from "./routes/create_banker";
 import { createClientRouter } from "./routes/create_client";
 import { createTransactionRouter } from "./routes/create_transaction";
+import { deleteClientRouter } from "./routes/delete_client";
+import { fetchClientRouter } from "./routes/fetch_client";
 require("dotenv").config();
 const app = express();
 
@@ -29,6 +31,8 @@ const main = async () => {
     app.use(createBankerRouter);
     app.use(createTransactionRouter);
     app.use(createConnectBankerToClient);
+    app.use(deleteClientRouter);
+    app.use(fetchClientRouter);
     app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
   } catch (error) {
     console.log("Error connecting to database", error);

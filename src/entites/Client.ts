@@ -38,7 +38,9 @@ export class Client extends Person {
   })
   family_member: string[];
 
-  @ManyToMany(() => Banker)
+  @ManyToMany(() => Banker, {
+    cascade: true,
+  })
   banker: Banker[];
 
   @OneToMany(() => Transaction, (transaction) => transaction.client)

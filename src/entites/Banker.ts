@@ -17,7 +17,9 @@ export class Banker extends Person {
   })
   employee_number: string;
 
-  @ManyToMany(() => Client)
+  @ManyToMany(() => Client, {
+    cascade: true,
+  })
   @JoinTable({
     name: "banker_client",
 
